@@ -14,4 +14,14 @@ const verifyToken = (jwt: string) => {
 	return isOk;
 };
 
-export {generateToken, verifyToken};
+const refreshToken = async(jwt: string, id: string) => {
+	const isOk = await verifyToken(jwt);
+	if(isOk){
+		const newToken = await generateToken(id);
+		return newToken;
+	}else{
+		return 'WRONK_TOKEN';
+	} 
+};
+
+export {generateToken, verifyToken, refreshToken};
