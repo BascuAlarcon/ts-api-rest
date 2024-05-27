@@ -7,16 +7,16 @@ const router = Router();
 
 /* [GET]
 * http:localhost:3000/item/
-*/ 
+*/
 router.get('/', getItems);
 
 router.get('/:id', getItem);
 
 router.post('/', [
 	check('name', 'Name is required').not().isEmpty(),
-	check('color', 'Name is required').not().isEmpty(),
-	check('gas', 'Name is required').not().isEmpty(),
-	check('year', 'Name is required').not().isNumeric(),
+	check('color', 'Color is required').not().isEmpty(),
+	check('gas', 'Gas is required').not().isEmpty(),
+	check('year', 'Year is required').isNumeric(),
 	fieldValidator
 ], postItem);
 
@@ -24,4 +24,4 @@ router.put('/:id', updateItem);
 
 router.delete('/:id', deleteItem);
 
-export {router};
+export { router };

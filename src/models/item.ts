@@ -1,4 +1,4 @@
-import {Schema, Types, model, Model} from 'mongoose';
+import { Schema, model } from 'mongoose';
 
 import { Car } from './../interfaces/car.interface';
 
@@ -29,10 +29,10 @@ const ItemSchema = new Schema<Car>({
 		required: true
 	}
 },
-{
-	timestamps: true,
-	versionKey: false
-});
+	{
+		timestamps: true,
+		versionKey: false
+	});
 
 const ItemModel = model('items', ItemSchema);
 export default ItemModel;
